@@ -10,7 +10,7 @@ Linkene i menuen er klikbare og hopper hen på siden, hvor sekionen af for det k
 
 ## Storage Animation:
 
-Keg´sene, vises kun i desktop og er animieret efter antal af hver øl, FooBar har på lager. 
+Keg´ene, vises kun i desktop og er animieret efter antal af hver øl, FooBar har på lager. 
 
 ## Taps Animation:
 
