@@ -397,11 +397,6 @@ $headColor: #393C4F;
     display: grid;
     grid-template-columns: 20% 1fr; }
   
-  .svgTapClass {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 40% 80%; }
-  
   .svgTapClass img {
     padding-left: 15vw;
     grid-column: 1/2;
@@ -411,12 +406,14 @@ $headColor: #393C4F;
   }
   
   #tapsInfo {
+    display: none;
     grid-row: 2/3;
     background-color: $divColor;
     border: 1px solid $borderColor;
     padding-top: 25px;
     padding-left: 30px;
-    margin: 0; }
+    margin: 0; 
+  }
   
   .tapsNumber {
     margin: 0;
@@ -449,9 +446,9 @@ $headColor: #393C4F;
   .tapLine {
     width: 100%;
     stroke: #C47F3B;
-    stroke-dasharray: 50;
-    stroke-dashoffset: 50;
-    transition: all 1s ease; }
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transition: all 2s ease; }
   
   .beertypes {
     display: grid;
@@ -642,6 +639,9 @@ $headColor: #393C4F;
       margin: 30px 30px; }
     #bartendersInfo {
       max-width: 100%; }
+      #bartendersInfo img{
+        padding-left: 10vw;
+      }
     .serving_text {
       font-size: 2.2em; }
     .servingNumber {
@@ -658,6 +658,22 @@ $headColor: #393C4F;
     .storage {
       grid-column: 1/4;
       grid-row: 2/3; }
+      .grid_animation{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+       
+      }
+      #tapsInfo{
+        display: block;
+        grid-column: 1/2;
+      }
+      #tapsGlass{
+        grid-column: 2/3;
+      }
+      svg{
+        border-radius:0px;
+        width:10%;
+      }
     .taps {
       grid-column: 1/4;
       grid-row: 3/4; }
@@ -681,6 +697,13 @@ $headColor: #393C4F;
     #storageKeg {
       grid-column: 2/3;
       grid-row: 1/2; }
+      .svgcontainer1{
+        transform: rotate(360deg);
+      }
+      .svgTapClass img{
+        width: 20%;
+        padding-left:0vw;
+      }
     #beertypesInfo {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;

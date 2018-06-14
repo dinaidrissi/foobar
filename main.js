@@ -258,9 +258,9 @@ function showTaps(tap){
             
         klon_tap.firstElementChild.appendChild(imgss);
         
-
         //load the tap animation
         imgss.addEventListener("click", startStrokeAnimation);
+
         
         glassAnimation(oneTap);
     
@@ -286,7 +286,7 @@ function startStrokeAnimation(){
 function endStrokeAnimation(){
     let tapId = this.dataset.svgTap;
     console.log("worksss", this)
-    this.style.strokeDashoffset = 50;
+    this.style.strokeDashoffset = 100;
 
 }
 function glassAnimation(oneGlass){
@@ -304,7 +304,7 @@ function glassAnimation(oneGlass){
         let forhold=oneGlass.level/2500;
         let height=84*forhold;
 
-        tapFill.setAttribute("y", 431+(84-height) );
+        tapFill.setAttribute("y", 97+(84-height) );
     tapFill.style.height=`${height}px`;
     tapFill.style.fill="#549DEB";
 
