@@ -2,7 +2,6 @@
 
 let data;
 
-    let imgss = document.createElement('img');
 document.addEventListener("DOMContentLoaded", getAllData);
 
 
@@ -87,9 +86,9 @@ function bartendersInfo(bartenders){
         // if bartender.status = "working" change color to red 
         if (bartender.status == "WORKING"){
             const status = "WORKING";
-    let imgsss = document.createElement('img');
-   imgsss.src="/img/"+ status +".png";         
-   bartendersInfo.appendChild(imgsss);
+        let imgsss = document.createElement('img');
+        imgsss.src="/img/"+ status +".png";         
+        bartendersInfo.appendChild(imgsss);
     
            //klon.querySelector(".status_show").style.backgroundColor="red";
         }else if(bartender.status == "READY"){
@@ -239,6 +238,7 @@ function showStorage(storages){
     
 }
 
+let imgss = document.createElement('img');
 function showTaps(tap){
     document.querySelector(".tapsNumber").textContent = data.taps.length;
     document.querySelector("#tapsInfo").innerHTML="";
