@@ -171,11 +171,7 @@ $headColor: #393C4F;
     border: 1px solid $borderColor;
     grid-row: 2/3; }
   
-  // .status_grid {
-  //   display: grid;
-  //   grid-template-columns: 1fr;
-  //   grid-template-rows: 1fr;
-  //  }
+ 
   
   .employee_grid {
     grid-row: 1/2;
@@ -397,6 +393,23 @@ $headColor: #393C4F;
     grid-row: 1/2;
     display: grid;
     grid-template-columns: 20% 1fr; }
+
+    #tapsGlass{
+      background-color: $divColor;
+      border: 1px solid $borderColor;
+      padding: 15px 15px;
+      margin: 0; 
+    }
+    .level{
+      font-size: 1.5em;
+    }
+    .capacity{
+      font-size: 1.5em;
+    }
+    svg#Layer_1{
+      border-radius:0px;
+      width:40%;
+    }
   
   .svgTapClass img {
     padding-left: 15vw;
@@ -438,9 +451,9 @@ $headColor: #393C4F;
   .svgcontainer1 {
     grid-column: 1/2;
     grid-row: 2/3;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
-    border: 1px solid $borderColor;
+    //border: 1px solid $borderColor;
     transform:rotate(90deg);
      }
   
@@ -491,38 +504,8 @@ $headColor: #393C4F;
     background-color: $headColor;
     border: 1px solid $borderColor;
     text-align: center; }
+    
   
-  button {
-    display: none; }
-  
-  .modal_window {
-    display: none;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.8);
-    width: 100vw;
-    height: 100vh;
-    visibility: hidden; }
-  
-  .modal_window section {
-    display: none;
-    background-color: $hell;
-    border-radius: 8px;
-    width: 50vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 5px; }
-  
-  .modal_window button {
-    display: none;
-    align-self: flex-end; }
-  
-  .modal_window h1 {
-    display: none;
-    margin: 2px 0 2px 0; }
   
   @media screen and (min-width: 667px) and (max-width: 1024px) {
     body {
@@ -591,16 +574,27 @@ $headColor: #393C4F;
       grid-column: 1/3;
       grid-row: 3/4;
       width: 100%; }
-
+    
+      svg#Layer_1{
+       
+        width:30%;
+      }
       .svgTapClass img{
+        transform: rotate(360deg);
         width:20%;
         padding-left: 42vw;
        padding-bottom: 20vw;
+      }
+      .svgcontainer1{
+        transform: rotate(360deg);
       }
       
       #tapsInfo{
         padding-top: 15px;
         padding-left: 15px;
+      }
+      #beerImg{
+        margin-left:12vw;
       }
     .beertypes {
       grid-column: 1/3;
@@ -611,14 +605,7 @@ $headColor: #393C4F;
       grid-template-columns: 1fr 1fr;
       grid-gap: 20px;
       margin-bottom: 10px; }
-    .modal_window {
-      display: block; }
-    .modal_window section {
-      display: block; }
-    .modal_window button {
-      display: block; }
-    .modal_window h1 {
-      display: block; } }
+  }
   
   @media screen and (min-width: 1024px) and (max-width: 2400px) {
     body {
@@ -680,7 +667,6 @@ $headColor: #393C4F;
       .capacity{
         grid-column: 3/4;
       }
-      
    
     .taps {
       grid-column: 1/4;
@@ -715,7 +701,8 @@ $headColor: #393C4F;
         
       }
       .svgTapClass img{
-        width: 20%;
+        width: 10%;
+        transform: rotate(360deg);
         padding-left:0vw;
       }
      
@@ -723,6 +710,33 @@ $headColor: #393C4F;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      grid-gap: 20px;
-      margin-bottom: 10px; } }
+      grid-gap: $gap;
+      margin-bottom: 10px; } 
+
+      #beerImg{
+        margin-left: 0vw;
+      }
+      .modal_window {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden; }
+      .modal_window section {
+        background-color: white;
+        border-radius: 8px;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5px; }
+      .modal_window button {
+        align-self: flex-end; }
+      .modal_window h1 {
+        margin: 2px 0 2px 0; }
+      
+  }
   

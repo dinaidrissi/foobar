@@ -1,22 +1,23 @@
 "use strict";
-
+// variabel for at hente Json - dataer
 let data;
 
+// Loader hjememside med det samme med getAllData functionen.
 document.addEventListener("DOMContentLoaded", getAllData);
 
-
+// Kalder på både FooBar.getData(true); og FooBar.getData();
 function getAllData(){
     showData();
     getBeertypes();
 }
 
+// Kalder på alle function der er FooBar.getData(true); som viser alt data uden Description.
 function showData(){
     let json = FooBar.getData(true);
     data = JSON.parse(json);
     console.log(data);
     showBarInfo(data.bar);
     bartendersInfo(data.bartenders);
-   
     showQueue(data.queueData);
     showServing(data.serving);
     showStorage(data.storages);
@@ -27,6 +28,8 @@ function showData(){
     
    
 }
+
+// Kalder på alle function der er FooBar.getData(); som viser alle dataer.  
 function getBeertypes(){
     let json = FooBar.getData();
     data = JSON.parse(json);
@@ -37,6 +40,7 @@ function getBeertypes(){
     onLoad(data.menu);
 }
 
+// loader siden for hver 10 sek for showData();
 setInterval(function(){
     showData();
 }, 10000);
@@ -56,12 +60,25 @@ function onLoad(menu) {
 
  
 
+
+
+
+// Function der kører svg Line der animerer fra x1,y1 til x2,y2
+document.querySelector("line").addEventListener("load", animate);
+//console.log(document.querySelector("line"))
+
+function animate(animating){
+          document.querySelector("line").style.strokeDashoffset = 0;
+      }
+
+// henter dataer ind for bar.name og bar.closeTime
 function showBarInfo(bar){
     document.querySelector(".name").textContent = bar.name;
     document.querySelector(".closeTime").textContent = "Close at " + bar.closingTime;
     console.log(bar.name);   
 }
 
+// henter dataer ind for og forEach på data.bartenders
 function bartendersInfo(bartenders){
     
     document.querySelector("#bartendersInfo").innerHTML = "";
@@ -106,12 +123,7 @@ function bartendersInfo(bartenders){
    
 }
 
-document.querySelector("line").addEventListener("load", animate);
-console.log(document.querySelector("line"))
-function animate(animating){
-    document.querySelector("line").style.strokeDashoffset = 0;
-}
-
+// henter dataer ind for queue og meter animation = data.queue.lenght
 function showQueue(queueData){
     document.querySelector(".queueNumber").textContent = data.queue.length;
     /* set radius for all circles */
@@ -165,6 +177,7 @@ function showQueue(queueData){
 
 }
 
+// data.serving.length = serving_text og data.serving.order = bestillinger
 function showServing(serving){
     
    document.querySelector("#servingInfo").innerHTML = "";
@@ -189,6 +202,7 @@ function showServing(serving){
  
 }
 
+// viser de rå data.storage
 function showStorageInfo(storageInfos){
         document.querySelector(".storageNumber").textContent = data.storage.length;
     document.querySelector("#storageInfo").innerHTML = "";
@@ -205,6 +219,7 @@ function showStorageInfo(storageInfos){
         });
 }
 
+// henter hver keg-img forEach storage.amonth 
 function showStorage(storages){
 
     let kegHolder = document.querySelector("#storageKeg");
@@ -238,6 +253,7 @@ function showStorage(storages){
     
 }
 
+// henter tap-img, loader Strokeanimation ved click og kalder på glassAnimation
 let imgss = document.createElement('img');
 function showTaps(tap){
     document.querySelector(".tapsNumber").textContent = data.taps.length;
@@ -251,12 +267,13 @@ function showTaps(tap){
         const beer = oneTap.beer;
 
 
-        klon_tap.querySelector(".svgcontainer1").classList.add("svgTap"+oneTap.id);
+      
         let imgss = document.createElement('img');
         imgss.src="/img/taps/"+beer+".svg"; 
         imgss.dataset.svgTap=oneTap.id;
             
         klon_tap.firstElementChild.appendChild(imgss);
+        klon_tap.querySelector(".svgcontainer1").classList.add("svgTap"+oneTap.id);
         
         //load the tap animation
         imgss.addEventListener("click", startStrokeAnimation);
@@ -271,7 +288,7 @@ function showTaps(tap){
 
 
 }   
-
+// starter animation
 function startStrokeAnimation(){
     let tapId = this.dataset.svgTap;
     console.log("works");
@@ -283,12 +300,15 @@ function startStrokeAnimation(){
     //else level*100/2500
 }
 
+// slutter animation ved transitionend
 function endStrokeAnimation(){
     let tapId = this.dataset.svgTap;
     console.log("worksss", this)
     this.style.strokeDashoffset = 100;
 
 }
+
+// Henter oneGlass.level, oneGlass.capacity og kører animationen for glasset
 function glassAnimation(oneGlass){
     
     let tapsTemplate = document.querySelector("#tapsTemplate").content;
@@ -319,33 +339,34 @@ function glassAnimation(oneGlass){
   
 }
 
+// henter beertype-img, beertype.name, beertype.category og beertype.alc   
 let beerTypes;
 function showBeertypes(beertypes){
     document.querySelector(".beertypesNumber").textContent = data.beertypes.length;
     document.querySelector("#beertypesInfo").innerHTML = "";
     data.beertypes.forEach(function(beertype){
-    let beertypesTemplate = document.querySelector("#beertypesTemplate").content;
-    let beertypesInfo = document.querySelector("#beertypesInfo");
-    //let beerImg = document.querySelector("#beerImg");
+let beertypesTemplate = document.querySelector("#beertypesTemplate").content;
+let beertypesInfo = document.querySelector("#beertypesInfo");
+//let beerImg = document.querySelector("#beerImg");
 
-    beerTypes=beertypes;
+beerTypes=beertypes;
 
-    let klon_beertype = beertypesTemplate.cloneNode(true);
-    const names = beertype.name;
+let klon_beertype = beertypesTemplate.cloneNode(true);
+const names = beertype.name;
 
 
-    //     let imgs = document.createElement('img');
-    //    imgs.src="/img/beers/"+names+".png";         
-    //     beerImg.appendChild(imgs);
+//     let imgs = document.createElement('img');
+//    imgs.src="/img/beers/"+names+".png";         
+//     beerImg.appendChild(imgs);
 
-    klon_beertype.querySelector("img").src="/img/beers/"+names+".png";
-    klon_beertype.querySelector(".beertypesName").textContent = beertype.name;
-    klon_beertype.querySelector(".alc").textContent = beertype.alc + " %";
-    klon_beertype.querySelector(".category").textContent = beertype.category;
-    klon_beertype.querySelector("button").addEventListener("click", seDetaljer_klik);
-    klon_beertype.querySelector("button").setAttribute("data-id",beertype.name);
+klon_beertype.querySelector("img").src="/img/beers/"+names+".png";
+klon_beertype.querySelector(".beertypesName").textContent = beertype.name;
+klon_beertype.querySelector(".alc").textContent = beertype.alc;
+klon_beertype.querySelector(".category").textContent = beertype.category;
+klon_beertype.querySelector("button").addEventListener("click", seDetaljer_klik);
+klon_beertype.querySelector("button").setAttribute("data-id",beertype.name);
 
-    beertypesInfo.appendChild(klon_beertype);
+beertypesInfo.appendChild(klon_beertype);
     });
 
 }
@@ -353,14 +374,14 @@ function showBeertypes(beertypes){
 document.querySelector(".modal_window button").addEventListener("click", modal_luk);
 
 
-function modal_luk(){
+
+    function modal_luk(){
         console.log("LUK!");
         document.querySelector(".modal_window").style.visibility ="hidden";
        
-}
+    }
 
-
-function seDetaljer_klik(openModal){
+    function seDetaljer_klik(openModal){
        
         let mit_id = openModal.currentTarget.getAttribute("data-id");
         console.log("klik kun id:", mit_id);
