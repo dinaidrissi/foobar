@@ -605,7 +605,7 @@ button {
   #bartendersInfo {
     max-width: 100%; }
   #bartendersInfo img {
-    padding-left: 10vw; }
+    padding-left: 11.2vw; }
   .serving_text {
     font-size: 2.2em; }
   .servingNumber {
@@ -629,10 +629,13 @@ button {
     display: block;
     grid-column: 1/2; }
   #tapsGlass {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 20% 20%; }
+  .level {
     grid-column: 2/3; }
-  svg {
-    border-radius: 0px;
-    width: 10%; }
+  .capacity {
+    grid-column: 3/4; }
   .taps {
     grid-column: 1/4;
     grid-row: 3/4; }
@@ -658,6 +661,10 @@ button {
     grid-row: 1/2; }
   .svgcontainer1 {
     transform: rotate(360deg); }
+  svg#Layer_1 {
+    grid-column: 1/2;
+    border-radius: 0px;
+    width: 20%; }
   .svgTapClass img {
     width: 20%;
     padding-left: 0vw; }

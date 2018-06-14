@@ -298,7 +298,8 @@ function glassAnimation(oneGlass){
 
         let klon_glass = tapsTemplate.cloneNode(true);
         let tapFill = klon_glass.querySelector(".st6");
-      
+        klon_glass.querySelector(".level").textContent = oneGlass.level + "    /";
+        klon_glass.querySelector(".capacity").textContent = oneGlass.capacity;
         //if level == 2500 be fill whole up
         //height skal være 84 hvis level = 2500 og 0 er level=0
         let forhold=oneGlass.level/2500;
@@ -352,14 +353,14 @@ function showBeertypes(beertypes){
 document.querySelector(".modal_window button").addEventListener("click", modal_luk);
 
 
-
-    function modal_luk(){
+function modal_luk(){
         console.log("LUK!");
         document.querySelector(".modal_window").style.visibility ="hidden";
        
-    }
+}
 
-    function seDetaljer_klik(openModal){
+
+function seDetaljer_klik(openModal){
        
         let mit_id = openModal.currentTarget.getAttribute("data-id");
         console.log("klik kun id:", mit_id);
