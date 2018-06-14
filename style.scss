@@ -802,11 +802,11 @@ $headColor: #393C4F;
       .modal_window section {
         background-color: $divColor;
         width: 50vw;
-        height: 50vw;
+        
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 10px;
+        padding: 5px;
        }
       .modal_window button {
         padding: 5px 5px;
