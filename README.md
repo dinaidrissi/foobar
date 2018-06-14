@@ -6,7 +6,9 @@
 
 ### SASS overvåger og tilskriver CSS fra style.scss til style.css automatisk. 
 
-Linkene i menuen er klikbare og hopper hen på siden, hvor sekionen af for det klikket link. 
+Linkene i menuen er klikbare og hopper hen på siden, hvor sektionen af for det klikket link.
+
+npm run mysass = får style.scss til at overvåge style.css.
 
 ## Storage Animation:
 
