@@ -1,4 +1,3 @@
-
 $hell :#FFF;
 $menuText: #818181;
 $gap: 10px;
@@ -11,9 +10,10 @@ $borderColor:#707070;
 $divColor: #2E3140;
 $background: #2D303F;
 $headColor: #393C4F;
-* {
+ * {
     padding: 0;
-    margin: 0; }
+    margin: 0;
+  }
   
   body {
     background: $background;
@@ -436,7 +436,8 @@ $headColor: #393C4F;
     border: 1px solid $borderColor;
     text-align: center;
     height: 100%;
-    font-size: 2.5em; }
+    font-size: 2.5em; 
+  }
   
   .taps_text {
     margin: 0;
@@ -446,7 +447,8 @@ $headColor: #393C4F;
     color: $hell;
     background-color: $headColor;
     border: 1px solid $borderColor;
-    text-align: center; }
+    text-align: center; 
+  }
   
   .svgcontainer1 {
     grid-column: 1/2;
@@ -455,7 +457,7 @@ $headColor: #393C4F;
     margin: 0 auto;
     //border: 1px solid $borderColor;
     transform:rotate(90deg);
-     }
+    }
   
   .tapLine {
     width: 100%;
@@ -504,10 +506,13 @@ $headColor: #393C4F;
     background-color: $headColor;
     border: 1px solid $borderColor;
     text-align: center; }
+
+    button{
+      display:none;
+    }
     
   
-  
-  @media screen and (min-width: 667px) and (max-width: 1024px) {
+ @media screen and (min-width: 667px) and (max-width: 1024px) {
     body {
       margin-left: 200px; }
 
@@ -605,52 +610,108 @@ $headColor: #393C4F;
       grid-template-columns: 1fr 1fr;
       grid-gap: 20px;
       margin-bottom: 10px; }
+      .modal_window {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        position: absolute;
+        z-index:9999;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 75vw;
+        height: 100vh;
+        visibility: hidden; 
+      }
+      .modal_window section {
+        background-color: $divColor;
+        width: 35vw;
+        // height: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5px;
+       }
+      .modal_window button {
+        // padding: 5px 5px;
+        align-self: flex-end; 
+      }
+      .modal_window h1 {
+        margin: 2px 0 2px 0; 
+      }
+      button{
+        display:block;
+      }
+
+
   }
   
-  @media screen and (min-width: 1024px) and (max-width: 2400px) {
+  @media screen and (min-width: 1024px) {
     body {
-      margin-left: 200px; }
+      margin-left: 200px; 
+    }
+
+    .closeTime {
+      font-size: 1.5em; }
+
     img {
-      width: 5%; }
+      width: 5%; 
+    }
+
     .burger {
-      display: none; }
+      display: none; 
+    }
+
     .sidenav {
-      display: block; }
+      display: block; 
+    }
+
     #storageKeg {
-      display: block; }
+      display: block; 
+    }
     #storageKeg img {
-      width: 10%; }
+      width: 10%; 
+    }
+
     .main {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 20px;
-      margin: 30px 30px; }
+      margin: 30px 30px; 
+    }
+
     #bartendersInfo {
-      max-width: 100%; }
-      #bartendersInfo img{
+      max-width: 100%; 
+    }
+      #bartendersInfo img {
         padding-left: 11.2vw;
       }
+
     .serving_text {
-      font-size: 2.2em; }
+      font-size: 2.2em; 
+    }
     .servingNumber {
-      font-size: 2.2em; }
+      font-size: 2.2em; 
+    }
     .bartenders_grid {
       grid-column: 1/2;
-      grid-row: 1/2; }
+      grid-row: 1/2; 
+    }
     .queue {
       grid-column: 2/3;
-      grid-row: 1/2; }
+      grid-row: 1/2; 
+    }
     .serving_grid {
       grid-column: 3/4;
-      grid-row: 1/2; }
+      grid-row: 1/2; 
+    }
     .storage {
       grid-column: 1/4;
-      grid-row: 2/3; }
+      grid-row: 2/3; 
+    }
       .grid_animation{
         display: grid;
         grid-template-columns: 1fr 1fr;
-       
       }
+    
       #tapsInfo{
         display: block;
         grid-column: 1/2;
@@ -670,27 +731,34 @@ $headColor: #393C4F;
    
     .taps {
       grid-column: 1/4;
-      grid-row: 3/4; }
+      grid-row: 3/4; 
+    }
     .beertypes {
       grid-column: 1/4;
-      grid-row: 4/5; }
+      grid-row: 4/5; 
+    }
     .keg_grid {
       display: grid;
       grid-template-columns: 20% 1fr;
       grid-template-rows: 1fr;
-      grid-gap: $gap; }
+      grid-gap: $gap; 
+    }
     #storageInfo {
       grid-column: 1/2;
-      grid-row: 1/2; }
+      grid-row: 1/2; 
+    }
     .storageName {
       font-size: 1em;
-      padding-left: 0px; }
+      padding-left: 0px; 
+    }
     .storageAmounth {
       font-size: 1em;
-      margin-bottom: 25px; }
+      margin-bottom: 25px; 
+    }
     #storageKeg {
       grid-column: 2/3;
-      grid-row: 1/2; }
+      grid-row: 1/2;
+     }
       .svgcontainer1{
         transform: rotate(360deg);
       }
@@ -711,32 +779,48 @@ $headColor: #393C4F;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       grid-gap: $gap;
-      margin-bottom: 10px; } 
+      margin-bottom: 10px;
+      width: 100vw;
+      height: 100vh;
+     } 
 
       #beerImg{
         margin-left: 0vw;
       }
+
       .modal_window {
         display: grid;
         justify-content: center;
         align-content: center;
-        position: fixed;
+        position: absolute;
+        z-index:9999;
         background-color: rgba(0, 0, 0, 0.8);
         width: 100vw;
         height: 100vh;
-        visibility: hidden; }
+        visibility: hidden; 
+      }
       .modal_window section {
-        background-color: white;
-        border-radius: 8px;
+        background-color: $divColor;
         width: 50vw;
+        height: 50vw;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 5px; }
+        padding: 10px;
+       }
       .modal_window button {
-        align-self: flex-end; }
+        padding: 5px 5px;
+        align-self: flex-end; 
+      }
       .modal_window h1 {
-        margin: 2px 0 2px 0; }
+        margin: 2px 0 2px 0; 
+      }
+
+      button{
+        display:block;
+      }
+
+      
       
   }
   
